@@ -1,0 +1,26 @@
+{
+  "name": "qna_platform",
+  "version": "1.0.0",
+  "description": "for web technologies assigment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffersonpardo00/QnA_platform.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/jeffersonpardo00/QnA_platform/issues"
+  },
+  "homepage": "https://github.com/jeffersonpardo00/QnA_platform#readme",
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "express": "^5.2.1"
+  }
+}
