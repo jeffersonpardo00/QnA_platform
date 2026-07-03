@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadQuestions();
 });
 
+
 async function loadQuestions() {
     const container = document.getElementById('questions-container');
 
