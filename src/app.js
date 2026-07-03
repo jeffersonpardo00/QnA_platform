@@ -1,12 +1,18 @@
 import express from 'express';
 import {db} from './connect.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../public')));
 const port = 3000;
 
 app.get('/', (req, res) => {
-  res.status(200);
-  res.send('Question service is online');
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 // question list-------------------------------------------------------------
@@ -17,11 +23,13 @@ const getQuestionsStmt = db.prepare(`
     q.description,
     q.author,
     q.like_count,
+    q.creation_date,
     COUNT(c.id) AS comment_count
   FROM questions q
   LEFT JOIN comments c
     ON q.id = c.question_id
-  GROUP BY q.id;
+  GROUP BY q.id
+  ORDER BY q.creation_date DESC;
 `);
 
 app.get('/api/qlist', (req, res) => {

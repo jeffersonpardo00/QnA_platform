@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div>
+                    <h1>Questions & Answers</h1>
+                    <p class="subtitle">Explore questions from the community</p>
+                </div>
+                <button class="btn-new-question" onclick="openNewQuestionModal()">+ Ask Question</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="questions-container" class="questions-list">
+                <!-- Questions will be loaded here -->
+                <div class="loading">Loading questions...</div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Q&A Platform. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Modal for creating new question -->
+    <div id="questionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Ask a New Question</h2>
+                <button class="modal-close" onclick="closeNewQuestionModal()">×</button>
+            </div>
+            <form id="newQuestionForm" onsubmit="submitNewQuestion(event)">
+                <div class="form-group">
+                    <label for="question-title">Question Title *</label>
+                    <input 
+                        type="text" 
+                        id="question-title" 
+                        placeholder="What's your question?" 
+                        required
+                        class="form-control"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="question-description">Description *</label>
+                    <textarea 
+                        id="question-description" 
+                        placeholder="Provide more details about your question..." 
+                        required
+                        class="form-control"
+                        rows="5"
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="question-author">Your Name *</label>
+                    <input 
+                        type="text" 
+                        id="question-author" 
+                        placeholder="Your name" 
+                        required
+                        class="form-control"
+                    />
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeNewQuestionModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Post Question</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="modal.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
