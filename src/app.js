@@ -1,4 +1,6 @@
 import express from 'express';
+import cookieParser from 'cookie-parser';
+import crypto from 'crypto';
 import {db} from './connect.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -7,9 +9,32 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+const port = 3000;
+
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
-const port = 3000;
+app.use(express.urlencoded({ extended: true }));
+
+
+app.use((req, res, next) => { 
+  // Give every visitor a CSRF token cookie if they do not have one. 
+  if (!req.cookies.csrftoken) { 
+    const token = crypto.randomBytes(24).toString('hex'); 
+    res.cookie('csrftoken', token, { httpOnly: false }); 
+    req.cookies.csrftoken = token; 
+  } 
+  
+  // For anything that changes state (not GET), the header must match the cookie. 
+  if (req.method !== 'GET') { 
+    const headerToken = req.headers['x-csrf-token']; 
+    if (!headerToken || headerToken !== req.cookies.csrftoken) {
+       return res.status(403).json({ 
+        error: 'Invalid CSRF token' 
+      }); 
+    } 
+  } next(); 
+});
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));

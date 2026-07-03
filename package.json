@@ -21,6 +21,7 @@
   "homepage": "https://github.com/jeffersonpardo00/QnA_platform#readme",
   "dependencies": {
     "better-sqlite3": "^12.11.1",
+    "cookie-parser": "^1.4.7",
     "express": "^5.2.1"
   }
 }

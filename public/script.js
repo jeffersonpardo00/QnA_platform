@@ -84,7 +84,8 @@ async function likeQuestion(questionId, buttonElement) {
         const response = await fetch(`/questions/${questionId}/like`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...getCsrfHeader()
             }
         });
 
