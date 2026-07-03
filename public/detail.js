@@ -73,6 +73,7 @@ function displayQuestionDetail(question) {
 
 function displayNewCommentForm(questionId) {
     const container = document.getElementById('new-comment-form-container');
+    container.innerHTML = ''; // Clear existing form
 
     const formDiv = document.createElement('div');
     formDiv.className = 'comment-form';
@@ -82,13 +83,11 @@ function displayNewCommentForm(questionId) {
         <form onsubmit="submitComment(event, ${questionId})">
             <input 
                 type="text" 
-                id="comment-author" 
                 placeholder="Your name" 
                 required
                 class="form-input"
             />
             <textarea 
-                id="comment-text" 
                 placeholder="Write your comment here..." 
                 required
                 class="form-textarea"
@@ -103,8 +102,10 @@ function displayNewCommentForm(questionId) {
 async function submitComment(event, questionId, replyToId = null) {
     event.preventDefault();
 
-    const authorInput = document.getElementById('comment-author');
-    const textInput = document.getElementById('comment-text');
+    // Get inputs from the form that triggered the event
+    const form = event.target;
+    const authorInput = form.querySelector('input[type="text"]');
+    const textInput = form.querySelector('textarea');
 
     const author = authorInput.value.trim();
     const text = textInput.value.trim();
