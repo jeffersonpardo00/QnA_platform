@@ -37,6 +37,10 @@ function displayQuestions(questions) {
 function createQuestionCard(question) {
     const card = document.createElement('div');
     card.className = 'question-card';
+    card.style.cursor = 'pointer';
+    card.onclick = () => {
+        window.location.href = `/detail.html?id=${question.id}`;
+    };
 
     const createdDate = new Date(question.creation_date);
     const formattedDate = formatDate(createdDate);

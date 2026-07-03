@@ -190,10 +190,321 @@ footer {
     font-size: 0.9rem;
 }
 
+/* ===== DETAIL PAGE STYLES ===== */
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back-button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.back-button:hover {
+    background: white;
+    color: #667eea;
+}
+
+header h1 {
+    flex: 1;
+    text-align: center;
+}
+
+.question-detail {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.detail-header {
+    margin-bottom: 20px;
+}
+
+.detail-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.detail-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    margin: 25px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-left: 4px solid #667eea;
+    border-radius: 4px;
+}
+
+.detail-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.section-divider {
+    border: none;
+    border-top: 2px solid #f0f0f0;
+    margin: 30px 0;
+}
+
+/* Comment Form Styles */
+.comment-form {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.comment-form h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.comment-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-input,
+.form-textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.btn-submit {
+    padding: 12px 24px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.btn-cancel {
+    padding: 8px 16px;
+    background: #ccc;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background: #bbb;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 30px;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comment {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid #667eea;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.reply-comment {
+    margin-left: 30px;
+    border-left: 4px solid #764ba2;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #667eea;
+    font-size: 0.95rem;
+}
+
+.comment-date {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.comment-text {
+    color: #555;
+    line-height: 1.6;
+    margin: 15px 0;
+    font-size: 0.95rem;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.like-btn,
+.reply-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: #f0f0f0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.like-btn:hover,
+.reply-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.like-btn.liked {
+    background: #ff6b6b;
+    color: white;
+}
+
+.replies-container {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.reply-form-container {
+    margin-top: 15px;
+}
+
+.reply-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.reply-input,
+.reply-textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.reply-textarea {
+    min-height: 80px;
+}
+
+.reply-form-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.reply-form-buttons .btn-submit,
+.reply-form-buttons .btn-cancel {
+    flex: 1;
+    margin: 0;
+}
+
+.no-comments {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 1rem;
+    background: white;
+    border: 1px dashed #ddd;
+    border-radius: 8px;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.8rem;
+    }
+
+    .header-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .back-button {
+        width: 100%;
+        text-align: center;
     }
 
     .question-header {
@@ -218,6 +529,28 @@ footer {
     main {
         padding: 20px;
     }
+
+    .detail-title {
+        font-size: 1.5rem;
+    }
+
+    .detail-description {
+        font-size: 0.95rem;
+        padding: 15px;
+    }
+
+    .question-detail {
+        padding: 20px;
+    }
+
+    .reply-comment {
+        margin-left: 15px;
+    }
+
+    .comment-form,
+    .comment {
+        padding: 15px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -233,6 +566,16 @@ footer {
         font-size: 1.5rem;
     }
 
+    .header-nav {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .back-button {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
     .question-card {
         padding: 15px;
     }
@@ -243,5 +586,74 @@ footer {
 
     main {
         padding: 15px;
+    }
+
+    .detail-title {
+        font-size: 1.3rem;
+    }
+
+    .detail-meta {
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+    }
+
+    .detail-description {
+        font-size: 0.9rem;
+        padding: 12px;
+        border-left: 3px solid #667eea;
+    }
+
+    .question-detail {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+
+    .comment-form,
+    .comment {
+        padding: 12px;
+        border-left-width: 3px;
+    }
+
+    .reply-comment {
+        margin-left: 10px;
+    }
+
+    .comment-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .like-btn,
+    .reply-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .reply-form {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .reply-form-buttons {
+        flex-direction: column;
+    }
+
+    .form-input,
+    .form-textarea,
+    .reply-input,
+    .reply-textarea {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .form-textarea,
+    .reply-textarea {
+        min-height: 80px;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+        padding: 10px 16px;
+        font-size: 0.85rem;
     }
 }
