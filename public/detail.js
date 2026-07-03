@@ -138,7 +138,8 @@ async function submitComment(event, questionId, replyToId = null) {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...getCsrfHeader()
             },
             body: JSON.stringify(body)
         });
@@ -277,7 +278,8 @@ async function likeQuestion(questionId, buttonElement) {
         const response = await fetch(`/questions/${questionId}/like`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...getCsrfHeader()
             }
         });
 
@@ -306,6 +308,7 @@ async function likeComment(commentId, buttonElement) {
         const response = await fetch(`/comments/${commentId}/like`, {
             method: 'POST',
             headers: {
+                ...getCsrfHeader(),
                 'Content-Type': 'application/json'
             }
         });

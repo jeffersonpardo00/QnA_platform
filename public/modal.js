@@ -42,7 +42,8 @@ async function submitNewQuestion(event) {
         const response = await fetch('/api/question', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                ...getCsrfHeader()
             },
             body: JSON.stringify({
                 title,
