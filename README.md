@@ -31,16 +31,18 @@ The app uses Better SQLite3 for database access.
 
 CSRF protection is enforced in [src/app.js](src/app.js) inside the middleware that runs before route handlers.
 
-The enforcement logic:
+The enforcement logic lives in [src/middleware/csrfMiddleware.js](src/middleware/csrfMiddleware.js) and is applied from [src/app.js](src/app.js).
+
+It:
 - checks for a CSRF token cookie
 - requires the `x-csrf-token` header for all non-GET requests
 - rejects requests with `403` if the header does not match the cookie
 
 ## Where parameterised queries are used
 
-Parameterised queries are used in the database access layer and route handlers in:
+Parameterised queries are used in the database and in backend scripts in:
 
-- [src/connect.js](src/connect.js) for schema creation and seed data insertion
+- [src/connect.js](src/connect.js) for tables creation and initial data insertion
 - [src/routes/questionRoutes.js](src/routes/questionRoutes.js) for question and comment inserts/updates
 - [src/routes/commentRoutes.js](src/routes/commentRoutes.js) for reply and like operations
 
