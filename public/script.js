@@ -69,7 +69,7 @@ function createQuestionCard(question) {
                     <span>💬 ${question.comment_count} ${question.comment_count === 1 ? 'comment' : 'comments'}</span>
                 </div>
             </div>
-            <button class="like-button" onclick="likeQuestion(${question.id}, this)">
+            <button class="like-button" onclick="likeQuestion(event, ${question.id}, this)">
                 <span>👍</span>
                 <span class="like-count">${likeCount}</span>
             </button>
@@ -79,7 +79,9 @@ function createQuestionCard(question) {
     return card;
 }
 
-async function likeQuestion(questionId, buttonElement) {
+async function likeQuestion(event, questionId, buttonElement) {
+    event.stopPropagation(); // Prevent bubbling to parent card
+    
     try {
         const response = await fetch(`/questions/${questionId}/like`, {
             method: 'POST',
