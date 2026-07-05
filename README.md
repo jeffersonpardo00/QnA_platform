@@ -2,6 +2,12 @@
 
 A simple Q&A platform built with Express and SQLite.
 
+# Author 
+Jeferson Pardo 
+
+# Student Code
+DHE26010135
+
 ## How to run the app
 
 1. Install dependencies:
